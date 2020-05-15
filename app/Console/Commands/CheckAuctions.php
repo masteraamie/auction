@@ -46,7 +46,7 @@ class CheckAuctions extends Command
 
         foreach($end_auctions as $auction)
         {
-            $winning_bid = Bid::where('auction_id', $auction->id)->max('amount');
+            $winning_bid = Bid::where('auction_id', $auction->id)->orderBy('amount', 'desc')->first();
             if($winning_bid)
             {
                 $auction->update([

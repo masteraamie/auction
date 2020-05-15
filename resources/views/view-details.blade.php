@@ -10,6 +10,13 @@
             <div class="property-title m-b-50">
                 <div class="property-top">
                     <div class="row">
+                        @if($auction->status == 'finished')
+                            <div class="col-12 mb-3 text-center">
+                                <h3>Won By:
+                                    <span class="badge badge-pill bg-success text-white">{{$auction->winner ? $auction->winner->name: 'N/A'}}</span>
+                                </h3>
+                            </div>
+                        @endif
                         @if($auction->created_by == $user->id)
                         <div class="col-12 mb-3">
                             <div class="item-name">
