@@ -132,7 +132,7 @@
                                             </span>
                                             <span class="badge badge-success border color-666 badge-pill">
                                                 <span class="mr-1 font-weight-normal">₹</span>
-                                                {{$last_bid->amount}}
+                                                {{$auction->bids ? $auction->bids->max('amount'): 'N/A'}}
                                             </span>
                                         </li>
                                     </ul>
