@@ -149,7 +149,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                                @if($auction->status == 'live')
+                                @if($auction->status == 'live' && $auction->created_by != $user->id)
                                 <div class="list-group mt-3">
                                     <div class="list-group-item py-4">
                                         <form id='bid-form' method="POST" action="">
