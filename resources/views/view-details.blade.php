@@ -131,8 +131,12 @@
                                                 Current Winning Bid :
                                             </span>
                                             <span class="badge badge-success border color-666 badge-pill">
+                                                @if(count($auction->bids) > 0)
                                                 <span class="mr-1 font-weight-normal">₹</span>
-                                                {{$auction->bids ? $auction->bids->max('amount'): 'N/A'}}
+                                                    {{ $auction->bids->max('amount')}}
+                                                @else
+                                                N/A
+                                                @endif
                                             </span>
                                         </li>
                                     </ul>
