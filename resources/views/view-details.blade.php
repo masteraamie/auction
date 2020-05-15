@@ -12,9 +12,13 @@
                     <div class="row">
                         @if($auction->status == 'finished')
                             <div class="col-12 mb-3 text-center">
+                                <div class="card p-4">
                                 <h3>Won By:
                                     <span class="badge badge-pill bg-success text-white">{{$auction->winner ? $auction->winner->name: 'N/A'}}</span>
+                                    Winning Bid:
+                                    <span class="badge badge-pill bg-success text-white">{{$auction->winner_bid ? '₹ '.$auction->winner_bid->amount: 'N/A'}}</span>
                                 </h3>
+                                </div>
                             </div>
                         @endif
                         @if($auction->created_by == $user->id)

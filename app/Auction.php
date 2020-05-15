@@ -19,6 +19,11 @@ class Auction extends Model
     }
 
 
+    public function winner_bid()
+    {
+        return $this->hasOne(Bid::class, 'id', 'winning_bid');
+    }
+
     public function bids()
     {
         return $this->hasMany(Bid::class, 'auction_id', 'id');
