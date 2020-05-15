@@ -37,10 +37,12 @@
                                             <span>
                                                 Auction Status :
                                             </span>
-                                            @if($item->status)
-                                                <span class="badge badge-pill bg-success text-white">Active</span>
+                                            @if($item->status == 'scheduled')
+                                                <span class="badge badge-pill bg-warning text-muted">{{strtoupper($item->status)}}</span>
+                                            @elseif($item->status == 'live')
+                                                <span class="badge badge-pill bg-success text-white">{{strtoupper($item->status)}}</span>
                                             @else
-                                                <span class="badge badge-pill bg-danger text-white">Inactive</span>
+                                                <span class="badge badge-pill bg-danger text-white">{{strtoupper($item->status)}}</span>
                                             @endif
                                         </li>
                                         <li
