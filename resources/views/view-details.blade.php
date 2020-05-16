@@ -126,6 +126,22 @@
                                             </span>
                                             @endif
                                         </li>
+                                        @if($auction->created_by != $user->id)
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            <span>
+                                                Current Rank :
+                                            </span>
+                                            @if($current_rank)
+                                            <span class="badge border color-666 badge-pill">
+                                                {{$current_rank}}
+                                            </span>
+                                            @else
+                                            <span class="badge badge-warning text-muted border color-666 badge-pill">
+                                                No bid placed yet
+                                            </span>
+                                            @endif
+                                        </li>
+                                        @endif
                                         <li class="list-group-item d-flex justify-content-between align-items-center">
                                             <span>
                                                 Current Winning Bid :

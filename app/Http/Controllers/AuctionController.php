@@ -125,8 +125,20 @@ class AuctionController extends Controller
     {
         $user = Auth::user();
         $auction = Auction::find($id);
+
+        $bids = Bid::where('auction_id', $id)->orderBy('amount', 'desc')->get();
+        $user_bids = Bid::where('auction_id', $id)->where('bid_by', 1)->orderBy('amount', 'desc')->first();
+
+        $current_rank  = $bids->search(function ($item, $key) use ($user) {
+            return $item->bid_by == $user->id;
+        });
+
+        if($current_rank !== false) {
+            $current_rank++;
+        }
+
         if($auction)
-            return view('view-details', \compact('auction', 'user'));
+            return view('view-details', \compact('auction', 'user', 'current_rank'));
         abort(404);
     }
 
