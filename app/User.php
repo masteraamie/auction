@@ -37,12 +37,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function last_bid($auction_id)
+    public function last_bid($auction_id, $user_id)
     {
-        return Bid::where('auction_id', $auction_id)->orderBy('id', 'desc')->first();
+        return Bid::where('auction_id', $auction_id)->where('bid_by', $user_id)->orderBy('id', 'desc')->first();
     }
-    public function auction_bids($auction_id)
+    public function auction_bids($auction_id, $user_id)
     {
-        return Bid::where('auction_id', $auction_id)->orderBy('id', 'desc')->get();
+        return Bid::where('auction_id', $auction_id)->where('bid_by', $user_id)->orderBy('id', 'desc')->get();
     }
 }

@@ -137,8 +137,10 @@ class AuctionController extends Controller
             $current_rank++;
         }
 
+        $last_bid = $auction->auctioneer->last_bid($auction->id, $user->id);
+
         if($auction)
-            return view('view-details', \compact('auction', 'user', 'current_rank'));
+            return view('view-details', \compact('auction', 'user', 'current_rank', 'last_bid'));
         abort(404);
     }
 

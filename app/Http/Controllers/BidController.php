@@ -57,7 +57,7 @@ class BidController extends Controller
                 ]);
             }
 
-            $last_bid = User::find($request->bid_by)->last_bid($request->auction_id);
+            $last_bid = User::find($request->bid_by)->last_bid($request->auction_id, $request->bid_by);
             if($last_bid && $last_bid->amount >= $amount)
             {
                 return response()->json([

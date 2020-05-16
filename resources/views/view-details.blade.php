@@ -110,11 +110,7 @@
                                         <li class="list-group-item d-flex justify-content-between align-items-center">
                                             <span>
                                                 Your Last Bid :
-                                            </span>
-                                            @php
-                                            $last_bid = $auction->auctioneer->last_bid($auction->id);
-                                            @endphp
-
+                                            </span>                                            
                                             @if($last_bid)
                                             <span class="badge border color-666 badge-pill">
                                                 <span class="mr-1 font-weight-normal">₹</span>
